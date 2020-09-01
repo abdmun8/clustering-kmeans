@@ -1,0 +1,52 @@
+- aplikasi
+php
+css
+javascript
+mysql
+
+-----------
+
+- web server
+xampp
+
+-----------
+
+menu
+    - input siswa
+        - crud
+    - input kelas
+        - crud
+    - data kelas
+    - data siswa
+    - input nilai
+        - crud
+    - data nilai
+    - clustering nilai
+        - proses
+
+-----------
+
+flow
+    masuk
+    data terisi (kelas, siswa, nilai)
+    proses clustering
+
+    hasil
+    - disimpan
+    - output pdf
+
+-----------
+    
+database
+- table
+    - siswa
+    - kelas
+    - nilai
+    - clustering
+    - user
+
+-----------
+
+
+
+
