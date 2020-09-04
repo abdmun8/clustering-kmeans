@@ -7,8 +7,40 @@
 }
 
 .login-form-container {
+  margin: auto;
+  flex-direction: column;
   display: flex;
   border: 1px solid #ced4da;
   border-radius: 15px;
   box-shadow: 1px 1px 5px #ced4da;
+}
+
+.user-text {
+  color: white;
+}
+
+.dynamic {
+  padding: 80px 20px;
+}
+
+.data-page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.data-page-header > p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.error-input {
+  margin: 0;
+  font-size: 12px;
+  color: red;
+}
+
+th {
+  font-size: 12px !important;
+  vertical-align: middle !important;
 }

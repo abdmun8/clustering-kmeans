@@ -7,23 +7,32 @@
     <title>Cluster K-Means</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-
 </head>
 
 <body>
+
+
     <section class="login-container">
         <div class="login-form-container p-5">
-            <form class="form">
+            <h2>Clustering K-Means</h2>
+            <?php
+            if (isset($_SESSION['login_gagal'])) {
+                echo '<span class="alert alert-danger my-1">Username atau Password Salah</span>';
+            }
+            ?>
+            <form class="form" method="post" action="">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Masukan Username">
+                    <input type="text" class="form-control" required id="username" name="username" placeholder="Masukan Username">
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="password" class="form-control" id="username" placeholder="Masukan Password">
+                    <input type="password" class="form-control" required id="password" name="password" placeholder="Masukan Password">
                 </div>
-                <button class="btn btn-primary btn-block">Login</button>
+                <input type="hidden" name="action" value="login" />
+                <button class="btn btn-primary btn-block" type="submit">Login</button>
             </form>
+
         </div>
     </section>
 
@@ -33,3 +42,15 @@
 </body>
 
 </html>
+<script>
+    <?php
+    if (isset($_SESSION['login_gagal'])) {
+        unset($_SESSION['login_gagal']);
+        echo "
+            setTimeout(function(){
+                $('.alert-danger').alert('close')
+            },5000);
+        ";
+    }
+    ?>
+</script>
