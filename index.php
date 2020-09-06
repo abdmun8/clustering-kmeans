@@ -1,4 +1,8 @@
 <?php
+// display error
+// ini_set('display_errors', 1);
+error_reporting(0);
+
 session_start();
 // define constant
 define("APP", "clustering-kmeans");

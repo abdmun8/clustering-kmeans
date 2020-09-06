@@ -84,7 +84,7 @@ function saveData()
     echo json_encode(['msg' => $msg,  'success' => $success, 'description' => $desc]);
 }
 
-//
+// clustering process
 function processClustering()
 {
     $msg = "Data berhasil disimpan";
@@ -116,6 +116,7 @@ function processClustering()
     echo json_encode(['msg' => $msg,  'success' => $success, 'data' => $data]);
 }
 
+// compare closest standart
 function compareKey($arr)
 {
     $lowest = '';
@@ -132,6 +133,7 @@ function compareKey($arr)
     return $arr;
 }
 
+// get distance nilai to standart
 function getDistance($arrNilai, $arrStd)
 {
     $keyNilai = array_keys($arrNilai);
@@ -141,25 +143,6 @@ function getDistance($arrNilai, $arrStd)
     }
 
     return round(sqrt($cummulative), 2);
-}
-
-
-// save Detail
-function saveDetail()
-{
-    $msg = "Data berhasil disimpan";
-    $success = TRUE;
-    $desc = "";
-    $cols = implode(',', array_keys($_POST));
-    $values = implode("','", array_values($_POST));
-    $sql = "INSERT INTO {$_POST['table']} ($cols) VALUES ('$values')";
-    $result = query($sql);
-    if ($result != TRUE) {
-        $msg = "Data gagal disimpan";
-        $success = FALSE;
-        $desc = $result;
-    }
-    echo json_encode(['msg' => $msg,  'success' => $success, 'description' => $desc]);
 }
 
 /* ------------------------------- GET REQUEST -------------------------------- */
