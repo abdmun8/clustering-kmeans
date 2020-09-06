@@ -1,6 +1,14 @@
 <?php
 
 /* ------------------------------- GET POST -------------------------------- */
+// load file
+function load($filename)
+{
+    require_once("view/$filename.php");
+    die;
+}
+
+// login
 function login()
 {
     global $db;
