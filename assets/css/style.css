@@ -15,6 +15,15 @@
   box-shadow: 1px 1px 5px #ced4da;
 }
 
+.login-form-container > .alert-danger {
+  font-size: 12px !important;
+  font-weight: bold;
+}
+
+#login-form > div > label {
+  font-size: 14px !important;
+}
+
 .user-text {
   color: white;
 }

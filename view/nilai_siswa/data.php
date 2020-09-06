@@ -49,6 +49,14 @@
                 url: base_url + "assets/Indonesian.json",
             },
             scrollX: true,
+            columnDefs: [{
+                searchable: false,
+                orderable: false,
+                targets: 0
+            }],
+            order: [
+                [1, 'asc']
+            ],
             columns: [{
                     data: 'id'
                 },
@@ -99,6 +107,8 @@
                 this.api().columns.adjust().draw()
             }
         });
+
+        addIndexColumn(table);
     }
 
     function hapus(id) {

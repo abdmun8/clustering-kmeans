@@ -129,6 +129,26 @@ function deleteData(table, id, dt) {
 }
 
 /**
+ * Add index column on the first row
+ * @param {object} table Datatble object
+ */
+function addIndexColumn(table) {
+  table
+    .on("order.dt search.dt", function () {
+      table
+        .column(0, {
+          search: "applied",
+          order: "applied",
+        })
+        .nodes()
+        .each(function (cell, i) {
+          cell.innerHTML = i + 1;
+        });
+    })
+    .draw();
+}
+
+/**
  * get data by ID from a table form
  * @param {string} table table name
  * @param {string|number} id id record

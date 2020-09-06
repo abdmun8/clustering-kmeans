@@ -44,6 +44,14 @@
             language: {
                 url: base_url + "assets/Indonesian.json",
             },
+            columnDefs: [{
+                searchable: false,
+                orderable: false,
+                targets: 0
+            }],
+            order: [
+                [1, 'asc']
+            ],
             columns: [{
                     data: 'id'
                 },
@@ -81,7 +89,11 @@
                 this.api().columns.adjust().draw()
             }
         });
+
+        addIndexColumn(table);
     }
+
+
 
     function hapus(id) {
         if (confirm("Apakah anda yakin akan mengahpus data ini?")) deleteData('siswa', id, table);

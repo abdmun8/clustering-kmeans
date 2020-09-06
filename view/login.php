@@ -22,7 +22,7 @@
                 echo '<span class="alert alert-danger my-1">Username atau Password Salah</span>';
             }
             ?>
-            <form class="form" method="post" action="">
+            <form class="form" id="login-form" method="post" action="">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" required id="username" name="username" placeholder="Masukan Username">
