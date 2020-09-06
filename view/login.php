@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cluster K-Means</title>
+    <title>TKQ BUSTANUL ULUM</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link id="favicon" rel="shortcut icon" href="./assets/logo-small.png" type="image/png">
 </head>
 
 <body>
     <section class="login-container">
         <div class="login-form-container px-4 pt-3 pb-4">
             <div class="image-wrapper">
-                <img src="./assets/logo.jpg" class="logo" />
+                <img src="./assets/logo.png" class="logo" />
                 <h5 class="text-center mt-2">TKQ BUSTANUL ULUM</h5>
             </div>
             <?php

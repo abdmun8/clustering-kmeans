@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clustering K-Means</title>
+    <title>TKQ BUSTANUL ULUM</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="./assets/css/select.dataTables.min.css" />
+    <link id="favicon" rel="shortcut icon" href="./assets/logo-small.png" type="image/png">
 </head>
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Clustering K-Means</a>
+        <a class="navbar-brand" href="#"><img src="./assets/logo-small.png" class="brand-logo" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
