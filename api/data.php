@@ -76,6 +76,66 @@ function saveData()
     echo json_encode(['msg' => $msg,  'success' => $success, 'description' => $desc]);
 }
 
+//
+function processClustering()
+{
+    $msg = "Data berhasil disimpan";
+    $success = TRUE;
+    $data = [];
+    // data nilai
+    $dns = json_decode($_POST['data_nilai'], TRUE);
+    // standar nilai
+    $sns = json_decode($_POST['standar_nilai'], TRUE);
+    foreach ($dns as $keya => $dn) {
+        $nilai = $dn;
+        unset($nilai['id']);
+        unset($nilai['id_siswa']);
+        unset($nilai['nama']);
+        unset($nilai['nisn']);
+
+        // create sk
+        $sk = [];
+        // cek jarak
+        foreach ($sns as $key => $sn) {
+            $sk[$sn['kelas']] = getDistance($nilai, $sn);
+        }
+        $temp['nama'] = $dn['nama'];
+        $temp['nisn'] = $dn['nisn'];
+        $addedResult =  compareKey($sk);
+        $newArr = array_merge($temp, $addedResult);
+        $data[] = $newArr;
+    }
+    echo json_encode(['msg' => $msg,  'success' => $success, 'data' => $data]);
+}
+
+function compareKey($arr)
+{
+    $lowest = '';
+    foreach (array_keys($arr) as $key => $value) {
+        if ($key == 0) {
+            $lowest = $value;
+        } else {
+            if ($arr[$value] < $arr[$lowest]) {
+                $lowest = $value;
+            }
+        }
+    }
+    $arr['result'] = $lowest;
+    return $arr;
+}
+
+function getDistance($arrNilai, $arrStd)
+{
+    $keyNilai = array_keys($arrNilai);
+    $cummulative = 0;
+    foreach ($keyNilai as $key => $value) {
+        $cummulative += pow(($arrStd[$value] - $arrNilai[$value]), 2);
+    }
+
+    return round(sqrt($cummulative), 2);
+}
+
+
 // save Detail
 function saveDetail()
 {
@@ -103,13 +163,13 @@ function getData()
     switch ($_GET['table']) {
         case 'nilai_siswa':
             if (isset($_GET['row'])) {
-                $sql = "SELECT a.*,b.nama 
+                $sql = "SELECT a.*,b.nama ,b.nisn
                         FROM {$_GET['table']} a 
                         LEFT JOIN siswa b ON a.id_siswa = b.id
                         WHERE a.id='{$_GET['id']}'";
                 $data = select($sql, TRUE);
             } else {
-                $data = $sql = "SELECT a.*,b.nama 
+                $data = $sql = "SELECT a.*,b.nama,b.nisn
                         FROM {$_GET['table']} a 
                         LEFT JOIN siswa b ON a.id_siswa = b.id";
                 $data = select($sql);

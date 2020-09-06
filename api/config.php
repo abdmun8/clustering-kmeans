@@ -1,6 +1,6 @@
 <?php
 $server = "localhost";
-$dbname = "cluster";
+$dbname = "dev0_cluster";
 $user = "root";
 $pass = "";
 $db = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);

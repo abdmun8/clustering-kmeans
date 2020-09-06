@@ -10,11 +10,12 @@
 </head>
 
 <body>
-
-
     <section class="login-container">
-        <div class="login-form-container p-5">
-            <h2>Clustering K-Means</h2>
+        <div class="login-form-container px-4 pt-3 pb-4">
+            <div class="image-wrapper">
+                <img src="./assets/logo.jpg" class="logo" />
+                <h5 class="text-center mt-2">TKQ BUSTANUL ULUM</h5>
+            </div>
             <?php
             if (isset($_SESSION['login_gagal'])) {
                 echo '<span class="alert alert-danger my-1">Username atau Password Salah</span>';

@@ -1,11 +1,11 @@
 <div class="data-page-header">
-    <p>Data kelas</p>
+    <p>Data Nilai Kelas</p>
     <button class="btn btn-sm btn-primary" onclick="tambah()">Tambah</button>
 </div>
 <div class="card">
     <div class="card-body">
         <div>
-            <table class="table table-sm table-hover" id="table" style="width: 100%;">
+            <table class="table table-sm table-striped" id="table" style="width: 100%;">
                 <thead class="thead-dark">
                     <tr>
                         <th>No</th>
@@ -84,8 +84,10 @@
                     className: 'text-center',
                     render: function(data, o, row) {
                         var button = `
+                        <div class="btn-group btn-group-sm" role="group">
                         <button type="button" class="btn btn-sm btn-info" onclick="edit(${data})">Edit</button>
                         <button type="button" class="btn btn-sm btn-danger" onclick="hapus(${data})">Delete</button>
+                        </div>
                         `;
                         return button;
                     },

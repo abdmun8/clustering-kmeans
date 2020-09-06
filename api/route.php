@@ -1,6 +1,5 @@
 <?php
 
-
 if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = NULL;
 }
@@ -34,6 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         case 'delete':
             deleteData();
+            break;
+        case 'clustering':
+            processClustering();
             break;
         default:
             header("location:" . BASE_URL);
