@@ -24,6 +24,14 @@
   font-size: 14px !important;
 }
 
+td > .btn-group {
+  height: 25px !important;
+}
+
+td > .btn-group > .btn {
+  line-height: 0.8 !important;
+}
+
 .user-text {
   color: white;
 }
@@ -66,7 +74,9 @@ li.active > a {
 
 .modal-content-wrapper {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .image-wrapper {

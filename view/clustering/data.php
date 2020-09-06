@@ -44,6 +44,7 @@
             </div>
             <div class="modal-body">
                 <div class="modal-content-wrapper">
+                    <span>Hasil clustering dengan metode Algoritma K-Means</span>
                     <div class="mb-2">
                         <div class="button-group btn-group-sm">
                             <button onclick="printResult()" type="button" class="btn btn-primary">Print</button>
@@ -54,7 +55,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <p class="text-italic">*Data yang ditampilkan adalah hasil perhitungan</p>
+                <p><i>*Data yang ditampilkan adalah hasil perhitungan</i></p>
             </div>
         </div>
     </div>
@@ -117,8 +118,8 @@
             html += `<tr>
                         <td>${index+1}</td>
                         <td>${item.nisn}</td>
-                        <td>${item['A']}</td>
-                        <td>${item['B']}</td>
+                        <td class="text-right">${item['A']}</td>
+                        <td class="text-right">${item['B']}</td>
                         <td>${item.result}</td>
                     </tr>`;
         }
