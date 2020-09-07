@@ -28,7 +28,7 @@
                     <input type="text" class="form-control" required id="username" name="username" placeholder="Masukan Username">
                 </div>
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="Password">Password</label>
                     <input type="password" class="form-control" required id="password" name="password" placeholder="Masukan Password">
                 </div>
                 <input type="hidden" name="action" value="login" />
