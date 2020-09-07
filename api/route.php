@@ -5,6 +5,9 @@ if (!isset($_REQUEST['action'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    if (!isset($_SESSION['username'])) {
+        load("login");
+    }
 
     switch ($_REQUEST['action']) {
         case 'logout':
@@ -12,22 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             header("location:" . BASE_URL);
             break;
         case 'data':
+            header('Content-Type: application/json');
             getData();
             break;
         default:
-            if (!isset($_SESSION['username'])) {
-                load("login");
-            }
             load("index");
             break;
     }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_REQUEST['action'] == 'login') {
+        login();
+    }
+
+    if (!isset($_SESSION['username'])) {
+        load("login");
+    }
+
     switch ($_REQUEST['action']) {
-        case 'login':
-            login();
-            break;
         case 'simpan':
             saveData();
             break;
