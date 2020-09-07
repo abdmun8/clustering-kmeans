@@ -52,6 +52,7 @@
                     </div>
                 </div>
                 <div id="print-area">
+                    Loading...
                 </div>
             </div>
             <div class="modal-footer">
@@ -106,6 +107,7 @@
         html += `<thead class="thead-dark">
                     <tr>
                         <th>No</th>
+                        <th>Nama</th>
                         <th>NISN</th>
                         <th>skA</th>
                         <th>skB</th>
@@ -117,6 +119,7 @@
             const item = data[index];
             html += `<tr>
                         <td>${index+1}</td>
+                        <td>${item.nama}</td>
                         <td>${item.nisn}</td>
                         <td class="text-right">${item['A']}</td>
                         <td class="text-right">${item['B']}</td>

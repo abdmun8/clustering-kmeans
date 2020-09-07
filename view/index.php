@@ -40,20 +40,12 @@
             </div>
         </div>
     </nav>
+    <!-- <div id="loader" class="alert alert-succes">
+        <div id="loader-content" class="bg-success">Loading...</div>
+    </div> -->
     <section class="dynamic container">
         Loading...
     </section>
-
-    <div class="modal fade" data-backdrop="static" id="backdrop-loader" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="display: flex;align-items:center;justify-content:center;flex-direction:column;height:100vh;width:100vw;">
-
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-            <h1>Loading...</h1>
-        </div>
-
-    </div>
 
 
 

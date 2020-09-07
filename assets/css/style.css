@@ -96,6 +96,16 @@ li.active > a {
   height: 40px;
 }
 
+#loader {
+  position: fixed;
+  background-color: red;
+  z-index: 2000;
+  display: flex;
+  width: 100%;
+  z-index: 2000;
+  justify-content: center;
+}
+
 @media print {
   body * {
     visibility: hidden;
