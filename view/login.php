@@ -7,7 +7,7 @@
     <title>SMAN 1 KLARI</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link id="favicon" rel="shortcut icon" href="./assets/logo-small.png" type="image/png">
+    <link id="favicon" rel="shortcut icon" href="./assets/logo.png" type="image/png">
 </head>
 
 <body>
