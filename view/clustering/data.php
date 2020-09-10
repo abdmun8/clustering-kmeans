@@ -15,14 +15,21 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Mengeja</th>
-                        <th>Penjumlahan</th>
-                        <th>Menulis</th>
-                        <th>Keaktifan</th>
-                        <th>Pengurangan</th>
-                        <th>Mewarnai</th>
-                        <th>Menggambar</th>
-                        <th>Mencocokan Bentuk</th>
+                        <th>Agama</th>
+                        <th>PKN</th>
+                        <th>B Indonesia</th>
+                        <th>B Inggris</th>
+                        <th>Matematika</th>
+                        <th>Fisika</th>
+                        <th>biologi</th>
+                        <th>Kimia</th>
+                        <th>Sejarah</th>
+                        <th>Geografi</th>
+                        <th>Ekonomi</th>
+                        <th>Sosiologi</th>
+                        <th>Seni Budaya</th>
+                        <th>PJOK</th>
+                        <th>B Arab</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,6 +72,7 @@
 <script>
     var table;
     var standar_nilai;
+    var print_html;
     $(document).ready(function() {
         initTable();
         req(base_url, 'GET', {
@@ -99,34 +107,56 @@
     }
 
     function printResult() {
+        var h = innerHeight;
+        var w = innerWidth;
+        var printWindow = window.open("", "MsgWindow", `width=${w},height=${h}`);
+        printWindow.document.write(print_html);
+        printWindow.document.write(`<style>
+        th,td {border: 1px solid black;padding: 0;}
+        table {width: 100%; border: 1px solid black; border-collapse: collapse;} 
+        </style>`);
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+        setTimeout(() => {
+            printWindow.close();
+        }, 1000)
+
+    }
+
+    function printDoc() {
+        console.log(1)
         window.print()
     }
 
     function geneRateTableReport(data) {
-        let html = `<table class="table table-sm table-striped table-bordered" width="100%" id="table-report" style="width: 100%;">`;
+        let html = `<table class="table table-sm table-striped table-bordered" width="100%" id="table-report">`;
         html += `<thead class="thead-dark">
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>NISN</th>
-                        <th>skA</th>
-                        <th>skB</th>
-                        <th>Kelas</th>
-                    </tr>
-                </thead>`;
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>NISN</th>
+            <th>BAHASA</th>
+            <th>IPS</th>
+            <th>IPA</th>
+            <th>Kelas</th>
+        </tr>
+    </thead>`;
         html += `<tbody>`;
         for (let index = 0; index < data.length; index++) {
             const item = data[index];
             html += `<tr>
-                        <td>${index+1}</td>
-                        <td>${item.nama}</td>
-                        <td>${item.nisn}</td>
-                        <td class="text-right">${item['A']}</td>
-                        <td class="text-right">${item['B']}</td>
-                        <td>${item.result}</td>
-                    </tr>`;
+            <td>${index+1}</td>
+            <td>${item.nama}</td>
+            <td>${item.nisn}</td>
+            <td class="text-right">${item['BAHASA']}</td>
+            <td class="text-right">${item['IPS']}</td>
+            <td class="text-right">${item['IPA']}</td>
+            <td>${item.result}</td>
+            </tr>`;
         }
-        html += "</tbody></table>";
+        html += "</tbody> </ table> ";
+        print_html = html
         return html;
     }
 
@@ -173,28 +203,49 @@
                     data: 'nama'
                 },
                 {
-                    data: 'mengeja'
+                    data: 'agama'
                 },
                 {
-                    data: 'penjumlahan'
+                    data: 'pkn'
                 },
                 {
-                    data: 'menulis'
+                    data: 'bind'
                 },
                 {
-                    data: 'keaktifan'
+                    data: 'bing'
                 },
                 {
-                    data: 'pengurangan'
+                    data: 'mtk'
                 },
                 {
-                    data: 'mewarnai'
+                    data: 'fisika'
                 },
                 {
-                    data: 'menggambar'
+                    data: 'biologi'
                 },
                 {
-                    data: 'mencocokan_bentuk'
+                    data: 'kimia'
+                },
+                {
+                    data: 'sejarah'
+                },
+                {
+                    data: 'geografi'
+                },
+                {
+                    data: 'ekonomi'
+                },
+                {
+                    data: 'sosiologi'
+                },
+                {
+                    data: 'sbud'
+                },
+                {
+                    data: 'pjok'
+                },
+                {
+                    data: 'barab'
                 },
 
             ],

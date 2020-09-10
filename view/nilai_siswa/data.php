@@ -10,14 +10,21 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Mengeja</th>
-                        <th>Penjumlahan</th>
-                        <th>Menulis</th>
-                        <th>Keaktifan</th>
-                        <th>Pengurangan</th>
-                        <th>Mewarnai</th>
-                        <th>Menggambar</th>
-                        <th>Mencocokan Bentuk</th>
+                        <th>Agama</th>
+                        <th>PKN</th>
+                        <th>B Indonesia</th>
+                        <th>B Inggris</th>
+                        <th>Matematika</th>
+                        <th>Fisika</th>
+                        <th>biologi</th>
+                        <th>Kimia</th>
+                        <th>Sejarah</th>
+                        <th>Geografi</th>
+                        <th>Ekonomi</th>
+                        <th>Sosiologi</th>
+                        <th>Seni Budaya</th>
+                        <th>PJOK</th>
+                        <th>B Arab</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -64,30 +71,50 @@
                     data: 'nama'
                 },
                 {
-                    data: 'mengeja'
+                    data: 'agama'
                 },
                 {
-                    data: 'penjumlahan'
+                    data: 'pkn'
                 },
                 {
-                    data: 'menulis'
+                    data: 'bind'
                 },
                 {
-                    data: 'keaktifan'
+                    data: 'bing'
                 },
                 {
-                    data: 'pengurangan'
+                    data: 'mtk'
                 },
                 {
-                    data: 'mewarnai'
+                    data: 'fisika'
                 },
                 {
-                    data: 'menggambar'
+                    data: 'biologi'
                 },
                 {
-                    data: 'mencocokan_bentuk'
+                    data: 'kimia'
                 },
-
+                {
+                    data: 'sejarah'
+                },
+                {
+                    data: 'geografi'
+                },
+                {
+                    data: 'ekonomi'
+                },
+                {
+                    data: 'sosiologi'
+                },
+                {
+                    data: 'sbud'
+                },
+                {
+                    data: 'pjok'
+                },
+                {
+                    data: 'barab'
+                },
                 {
                     data: 'id',
                     className: 'text-center',

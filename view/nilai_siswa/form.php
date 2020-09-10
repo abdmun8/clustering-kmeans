@@ -14,36 +14,64 @@
                     </select>
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Mengeja</label>
-                    <input type="number" min="0" class="form-control" id="mengeja" name="mengeja" placeholder="Mengeja">
+                    <label>Agama</label>
+                    <input type="number" min="0" class="form-control" id="agama" name="agama" placeholder="Agama">
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Penjumlahan</label>
-                    <input type="number" min="0" class="form-control" id="penjumlahan" name="penjumlahan" placeholder="Penjumlahan">
+                    <label>Pkn</label>
+                    <input type="number" min="0" class="form-control" id="pkn" name="pkn" placeholder="Pkn">
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Menulis</label>
-                    <input type="number" min="0" class="form-control" id="menulis" name="menulis" placeholder="Menulis">
+                    <label>B indonesia</label>
+                    <input type="number" min="0" class="form-control" id="bind" name="bind" placeholder="B indonesia">
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Keaktifan</label>
-                    <input type="number" min="0" class="form-control" id="keaktifan" name="keaktifan" placeholder="Keaktifan">
+                    <label>B Inggris</label>
+                    <input type="number" min="0" class="form-control" id="bing" name="bing" placeholder="B Inggris">
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Pengurangan</label>
-                    <input type="number" min="0" class="form-control" id="pengurangan" name="pengurangan" placeholder="Pengurangan">
+                    <label>MTK</label>
+                    <input type="number" min="0" class="form-control" id="mtk" name="mtk" placeholder="MTK">
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Mewarnai</label>
-                    <input type="number" min="0" class="form-control" id="mewarnai" name="mewarnai" placeholder="Mewarnai">
+                    <label>Fisika</label>
+                    <input type="number" min="0" class="form-control" id="fisika" name="fisika" placeholder="Fisika">
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Menggambar</label>
-                    <input type="number" min="0" class="form-control" id="menggambar" name="menggambar" placeholder="Menggambar">
+                    <label>Biologi</label>
+                    <input type="number" min="0" class="form-control" id="biologi" name="biologi" placeholder="Biologi">
                 </div>
                 <div class="form-group col-md-3">
-                    <label>Mencocokan Bentuk</label>
-                    <input type="number" min="0" class="form-control" id="mencocokan_bentuk" name="mencocokan_bentuk" placeholder="Mencocokan Bentuk">
+                    <label>Kimia</label>
+                    <input type="number" min="0" class="form-control" id="kimia" name="kimia" placeholder="Kimia">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Sejarah</label>
+                    <input type="number" min="0" class="form-control" id="sejarah" name="sejarah" placeholder="Sejarah">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Geografi</label>
+                    <input type="number" min="0" class="form-control" id="geografi" name="geografi" placeholder="Geografi">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Ekonomi</label>
+                    <input type="number" min="0" class="form-control" id="ekonomi" name="ekonomi" placeholder="Ekonomi">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Sosiologi</label>
+                    <input type="number" min="0" class="form-control" id="sosiologi" name="sosiologi" placeholder="Sosiologi">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Seni Budaya</label>
+                    <input type="number" min="0" class="form-control" id="sbud" name="sbud" placeholder="Seni Budaya">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>PJOK</label>
+                    <input type="number" min="0" class="form-control" id="pjok" name="pjok" placeholder="PJOK">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>B Arab</label>
+                    <input type="number" min="0" class="form-control" id="barab" name="barab" placeholder="B Arab">
                 </div>
             </div>
             <button type="button" class="btn btn-primary float-right" onclick="simpan()">Simpan</button>
@@ -55,14 +83,21 @@
     // set required form
     var required = [
         'id_siswa',
-        'mengeja',
-        'penjumlahan',
-        'menulis',
-        'keaktifan',
-        'pengurangan',
-        'mewarnai',
-        'menggambar',
-        'mencocokan_bentuk',
+        'agama',
+        'pkn',
+        'bind',
+        'bing',
+        'mtk',
+        'fisika',
+        'biologi',
+        'kimia',
+        'sejarah',
+        'geografi',
+        'ekonomi',
+        'sosiologi',
+        'sbud',
+        'pjok',
+        'barab',
     ];
     req(base_url, 'GET', {
         table: 'siswa',
@@ -70,7 +105,7 @@
     }).then(res => {
         $('#id_siswa').children().not(':first').remove();
         res.data.forEach(function(item) {
-            $('#id_siswa').append(`<option value="${item.id}">${item.nama}</option>`);
+            $('#id_siswa').append(`<option value="${item.id}">${item.nama} - ${item.nisn}</option>`);
         });
         // load data if parameter id exist
         <?= isset($_GET['id']) ? "getDataById('nilai_siswa', '{$_GET['id']}');" : ''; ?>

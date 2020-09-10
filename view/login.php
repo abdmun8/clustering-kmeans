@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TKQ BUSTANUL ULUM</title>
+    <title>SMAN 1 KLARI</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link id="favicon" rel="shortcut icon" href="./assets/logo-small.png" type="image/png">
@@ -15,7 +15,7 @@
         <div class="login-form-container px-4 pt-3 pb-4">
             <div class="image-wrapper">
                 <img src="./assets/logo.png" class="logo" />
-                <h5 class="text-center mt-2">TKQ BUSTANUL ULUM</h5>
+                <h5 class="text-center mt-2">SMAN 1 KLARI</h5>
             </div>
             <?php
             if (isset($_SESSION['login_gagal'])) {
