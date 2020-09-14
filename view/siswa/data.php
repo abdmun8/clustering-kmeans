@@ -12,7 +12,6 @@
                         <th>Nama</th>
                         <th>NISN</th>
                         <th>Jenis Kelamin</th>
-                        <th>Umur</th>
                         <th>Alamat</th>
                         <th>Action</th>
                     </tr>
@@ -63,9 +62,6 @@
                 },
                 {
                     data: 'jenis_kelamin'
-                },
-                {
-                    data: 'umur'
                 },
                 {
                     data: 'alamat',

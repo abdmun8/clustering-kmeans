@@ -63,8 +63,7 @@
 </div>
 
 <script>
-    var table;
-    var standar_nilai;
+    var table, print_html, standar_nilai;
     $(document).ready(function() {
         initTable();
         req(base_url, 'GET', {
@@ -98,10 +97,6 @@
         });
     }
 
-    function printResult() {
-        window.print()
-    }
-
     function geneRateTableReport(data) {
         let html = `<table class="table table-sm table-striped table-bordered" width="100%" id="table-report" style="width: 100%;">`;
         html += `<thead class="thead-dark">
@@ -129,6 +124,7 @@
                     </tr>`;
         }
         html += "</tbody></table>";
+        print_html = html;
         return html;
     }
 
@@ -205,6 +201,25 @@
             }
         });
     }
+
+    function printResult() {
+        var h = innerHeight;
+        var w = innerWidth;
+        var printWindow = window.open("", "MsgWindow", `width=${w},height=${h}`);
+        printWindow.document.write(print_html);
+        printWindow.document.write(`<style>
+        th,td {border: 1px solid black;padding: 0;}
+        table {width: 100%; border: 1px solid black; border-collapse: collapse;} 
+        </style>`);
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+        setTimeout(() => {
+            printWindow.close();
+        }, 1000)
+
+    }
+
 
     function hapus(id) {
         if (confirm("Apakah anda yakin akan mengahpus data ini?")) deleteData('nilai_siswa', id, table);

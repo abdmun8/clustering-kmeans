@@ -24,11 +24,6 @@
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Umur</label>
-                    <input type="number" min="0" class="form-control" id="umur" name="umur" placeholder="Umur">
-                </div>
-
-                <div class="form-group col-md-6">
                     <label>Alamat</label>
                     <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
                 </div>
@@ -41,7 +36,7 @@
 </div>
 <script>
     // set required form
-    var required = ['nama', 'nisn', 'jenis_kelamin', 'umur', 'alamat'];
+    var required = ['nama', 'nisn', 'jenis_kelamin', 'alamat'];
     // load option
     <?= isset($_GET['id']) ? "getDataById('siswa', '{$_GET['id']}');" : ''; ?>
 

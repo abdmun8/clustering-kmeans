@@ -60,12 +60,14 @@ td > .btn-group > .btn {
 th {
   font-size: 12px !important;
   font-weight: normal;
+  white-space: nowrap;
   vertical-align: middle !important;
 }
 
 td {
   font-size: 14px;
   vertical-align: middle !important;
+  white-space: nowrap;
 }
 
 li.active > a {
