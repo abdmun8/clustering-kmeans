@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.7.30-0ubuntu0.18.04.1 - (Ubuntu)
--- Server OS:                    Linux
+-- Server version:               5.7.24 - MySQL Community Server (GPL)
+-- Server OS:                    Win64
 -- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
@@ -31,14 +31,15 @@ CREATE TABLE IF NOT EXISTS `nilai_kelas` (
   `menggambar` int(11) DEFAULT '0',
   `mencocokan_bentuk` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table dev0_cluster.nilai_kelas: ~2 rows (approximately)
 DELETE FROM `nilai_kelas`;
 /*!40000 ALTER TABLE `nilai_kelas` DISABLE KEYS */;
 INSERT INTO `nilai_kelas` (`id`, `kelas`, `mengeja`, `penjumlahan`, `menulis`, `keaktifan`, `pengurangan`, `mewarnai`, `menggambar`, `mencocokan_bentuk`) VALUES
 	(1, 'A', 75, 65, 70, 80, 75, 80, 75, 80),
-	(2, 'B', 90, 85, 80, 85, 85, 90, 85, 85);
+	(2, 'B', 90, 85, 80, 85, 85, 90, 85, 85),
+	(3, 'C', 90, 90, 85, 85, 90, 95, 90, 90);
 /*!40000 ALTER TABLE `nilai_kelas` ENABLE KEYS */;
 
 -- Dumping structure for table dev0_cluster.nilai_siswa
@@ -134,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table dev0_cluster.user: ~1 rows (approximately)
+-- Dumping data for table dev0_cluster.user: ~0 rows (approximately)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password`, `nama`) VALUES

@@ -111,6 +111,7 @@
                         <th>NISN</th>
                         <th>skA</th>
                         <th>skB</th>
+                        <th>skC</th>
                         <th>Kelas</th>
                     </tr>
                 </thead>`;
@@ -123,6 +124,7 @@
                         <td>${item.nisn}</td>
                         <td class="text-right">${item['A']}</td>
                         <td class="text-right">${item['B']}</td>
+                        <td class="text-right">${item['C']}</td>
                         <td>${item.result}</td>
                     </tr>`;
         }
