@@ -112,6 +112,12 @@ li.active > a {
   display: none;
 }
 
+@media screen and (max-width: 720px) {
+  #print-area {
+    overflow: scroll;
+  }
+}
+
 @media print {
   .print-header {
     display: block;
