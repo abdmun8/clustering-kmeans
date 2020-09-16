@@ -37,14 +37,14 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Clustering</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Clustering Prestasi Siswa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="modal-content-wrapper">
-                    <span>Hasil clustering dengan metode Algoritma K-Means</span>
+                    <span>Hasil clustering prestasi dengan metode Algoritma K-Means</span>
                     <div class="mb-2">
                         <div class="button-group btn-group-sm">
                             <button onclick="printResult()" type="button" class="btn btn-primary">Print</button>
@@ -98,15 +98,24 @@
     }
 
     function geneRateTableReport(data) {
-        let html = `<table class="table table-sm table-striped table-bordered" width="100%" id="table-report" style="width: 100%;">`;
+        let html = `
+            <h2 class="print-header" style="text-align:center;">Clustering Prestasi Siswa</h2>
+            <div class="mb-2">
+                <strong>A = Sangat Baik</strong>&nbsp;
+                <strong>B = Baik</strong>&nbsp;
+                <strong>C = Cukup</strong>&nbsp;
+                <strong>D = Kurang</strong>&nbsp;
+            </div>
+            <table class="table table-sm table-striped table-bordered" width="100%" id="table-report" style="width: 100%;">`;
         html += `<thead class="thead-dark">
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
                         <th>NISN</th>
-                        <th>skA</th>
-                        <th>skB</th>
-                        <th>skC</th>
+                        <th>Std A</th>
+                        <th>Std B</th>
+                        <th>Std C</th>
+                        <th>Std D</th>
                         <th>Kelas</th>
                     </tr>
                 </thead>`;
@@ -120,7 +129,8 @@
                         <td class="text-right">${item['A']}</td>
                         <td class="text-right">${item['B']}</td>
                         <td class="text-right">${item['C']}</td>
-                        <td>${item.result}</td>
+                        <td class="text-right">${item['D']}</td>
+                        <td class="text-center">${item.result}</td>
                     </tr>`;
         }
         html += "</tbody></table>";

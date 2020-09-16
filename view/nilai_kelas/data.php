@@ -1,10 +1,16 @@
 <div class="data-page-header">
-    <p>Data Nilai Kelas</p>
+    <p>Data Standar Prestasi Siswa</p>
     <button class="btn btn-sm btn-primary" onclick="tambah()">Tambah</button>
 </div>
 <div class="card">
     <div class="card-body">
         <div>
+            <div class="mb-2">
+                <strong>A = Sangat Baik</strong>&nbsp;
+                <strong>B = Baik</strong>&nbsp;
+                <strong>C = Cukup</strong>&nbsp;
+                <strong>D = Kurang</strong>&nbsp;
+            </div>
             <table class="table table-sm table-striped" id="table" style="width: 100%;">
                 <thead class="thead-dark">
                     <tr>

@@ -24,14 +24,14 @@
                     <a class="nav-link" href="#">Siswa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nilai Kelas</a>
+                    <a class="nav-link" href="#">Standar Prestasi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Nilai Siswa</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cluster Data Siswa</a>
+                    <a class="nav-link" href="#">Cluster Prestasi Siswa</a>
                 </li>
             </ul>
             <div class="">

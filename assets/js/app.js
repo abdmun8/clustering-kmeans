@@ -57,13 +57,13 @@ function changeMenu(currentMenu = "Siswa") {
     });
   menuActive = currentMenu;
   switch (currentMenu) {
-    case "Nilai Kelas":
+    case "Standar Prestasi":
       currentMenu = "nilai_kelas";
       break;
     case "Nilai Siswa":
       currentMenu = "nilai_siswa";
       break;
-    case "Cluster Data Siswa":
+    case "Cluster Prestasi Siswa":
       currentMenu = "clustering";
       break;
   }

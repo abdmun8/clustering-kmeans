@@ -108,7 +108,14 @@ li.active > a {
   justify-content: center;
 }
 
+.print-header {
+  display: none;
+}
+
 @media print {
+  .print-header {
+    display: block;
+  }
   body * {
     visibility: hidden;
   }

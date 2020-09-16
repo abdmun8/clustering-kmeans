@@ -31,15 +31,16 @@ CREATE TABLE IF NOT EXISTS `nilai_kelas` (
   `menggambar` int(11) DEFAULT '0',
   `mencocokan_bentuk` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table dev0_cluster.nilai_kelas: ~2 rows (approximately)
+-- Dumping data for table dev0_cluster.nilai_kelas: ~4 rows (approximately)
 DELETE FROM `nilai_kelas`;
 /*!40000 ALTER TABLE `nilai_kelas` DISABLE KEYS */;
 INSERT INTO `nilai_kelas` (`id`, `kelas`, `mengeja`, `penjumlahan`, `menulis`, `keaktifan`, `pengurangan`, `mewarnai`, `menggambar`, `mencocokan_bentuk`) VALUES
-	(1, 'A', 75, 65, 70, 80, 75, 80, 75, 80),
+	(1, 'C', 75, 65, 70, 80, 75, 80, 75, 80),
 	(2, 'B', 90, 85, 80, 85, 85, 90, 85, 85),
-	(3, 'C', 90, 85, 85, 85, 90, 95, 90, 90);
+	(3, 'A', 90, 85, 85, 85, 90, 95, 90, 90),
+	(4, 'D', 65, 60, 60, 65, 60, 65, 65, 65);
 /*!40000 ALTER TABLE `nilai_kelas` ENABLE KEYS */;
 
 -- Dumping structure for table dev0_cluster.nilai_siswa
@@ -58,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `nilai_siswa` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=latin1;
 
--- Dumping data for table dev0_cluster.nilai_siswa: ~0 rows (approximately)
+-- Dumping data for table dev0_cluster.nilai_siswa: ~219 rows (approximately)
 DELETE FROM `nilai_siswa`;
 /*!40000 ALTER TABLE `nilai_siswa` DISABLE KEYS */;
 INSERT INTO `nilai_siswa` (`id`, `id_siswa`, `mengeja`, `penjumlahan`, `menulis`, `keaktifan`, `pengurangan`, `mewarnai`, `menggambar`, `mencocokan_bentuk`) VALUES
@@ -529,7 +530,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table dev0_cluster.user: ~0 rows (approximately)
+-- Dumping data for table dev0_cluster.user: ~1 rows (approximately)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password`, `nama`) VALUES
