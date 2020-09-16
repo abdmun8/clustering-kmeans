@@ -116,7 +116,7 @@
                         <th>Std B</th>
                         <th>Std C</th>
                         <th>Std D</th>
-                        <th>Kelas</th>
+                        <th>Prestasi</th>
                     </tr>
                 </thead>`;
         html += `<tbody>`;
