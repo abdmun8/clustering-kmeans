@@ -203,8 +203,9 @@ $datac1 = array_filter($data, function ($item) {
 
 
 <script>
+    <?php $_SESSION['jumlah_iterasi']-- ?>
     var base_url = '<?= $_SESSION['BASE_URL'] ?>';
-    var sisa_iterasi = <?= $_SESSION['jumlah_iterasi'] - $_SESSION['iterasi'] ?>;
+    var sisa_iterasi = <?= $_SESSION['jumlah_iterasi'] ?>;
     var data_nilai = <?php echo json_encode($_SESSION['data_nilai']) ?>;
     var standar_nilai = <?php echo json_encode(
                             [
@@ -213,7 +214,7 @@ $datac1 = array_filter($data, function ($item) {
                             ]
                         ) ?>;
     if (sisa_iterasi > 0) {
-        <?php $_SESSION['jumlah_iterasi']-- ?>
+
         var formData = new FormData();
         formData.append('standar_nilai', JSON.stringify(standar_nilai));
         formData.append('data_nilai', JSON.stringify(data_nilai));
