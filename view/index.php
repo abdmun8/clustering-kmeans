@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TKQ BUSTANUL ULUM</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css?time=<?= time() ?>" />
     <link rel="stylesheet" href="./assets/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="./assets/css/select.dataTables.min.css" />
     <link id="favicon" rel="shortcut icon" href="./assets/logo-small.png" type="image/png">
@@ -51,7 +51,7 @@
 
     <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/app.js?time=<?= time() ?>"></script>
     <script src="./assets/js/dataTables.bootstrap4.min.js"></script>
     <script src="./assets/js/dataTables.select.min.js"></script>
     <script>

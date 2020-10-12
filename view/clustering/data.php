@@ -1,9 +1,15 @@
 <div class="data-page-header">
     <p>Data Nilai Siswa</p>
-    <div class="btn-group btn-group-sm" role="group">
-        <button class="btn btn-sm btn-success" onclick="selectAll()">Pilih Semua</button>
-        <button class="btn btn-sm btn-warning" onclick="deselectAll()">Batalkan Pilihan</button>
-        <button class="btn btn-sm btn-primary" onclick="processClustering()">Proses</button>
+    <div>
+        <div class="btn-group btn-group-sm" role="group">
+            <button class="btn btn-sm btn-success" onclick="selectAll()">Pilih Semua</button>
+            <button class="btn btn-sm btn-warning" onclick="deselectAll()">Batalkan Pilihan</button>
+            <button class="btn btn-sm btn-primary" onclick="processClustering()">Proses</button>
+        </div>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: flex-end;">
+            <label>Jumlah iterasi: </label>
+            <input id="jumlah-iterasi" type="number" class="form-control input-xs" style="width:70px;margin:10px 0 10px 10px;height: 30px;" value="1" min="1" />
+        </div>
     </div>
 
 </div>
@@ -85,19 +91,24 @@
             const item = data[index];
             data_nilai.push(item)
         }
-        $('#staticBackdrop').modal('show')
+        // $('#staticBackdrop').modal('show')
         req(base_url, 'POST', {
             standar_nilai: JSON.stringify(standar_nilai),
             data_nilai: JSON.stringify(data_nilai),
-            action: 'clustering'
+            jumlah_iterasi: $('#jumlah-iterasi').val(),
+            action: 'clustering',
+            is_new: true,
         }).then(res => {
             if (res.success) {
-                $('#print-area').html(geneRateTableReport(res.data));
+                window.open('view/report/index.php');
+                return;
+                // $('#print-area').html(geneRateTableReport(res.data));
             }
         });
     }
 
     function geneRateTableReport(data) {
+
         let html = `
             <h2 class="print-header" style="text-align:center;">Clustering Prestasi Siswa</h2>
             <div class="mb-2">

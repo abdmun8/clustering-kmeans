@@ -1,21 +1,21 @@
 <div class="data-page-header">
-    <p>Data Standar Prestasi Siswa</p>
+    <p>Data Standar Prestasi Siswa (Centroid Awal)</p>
     <button class="btn btn-sm btn-primary" onclick="tambah()">Tambah</button>
 </div>
 <div class="card">
     <div class="card-body">
         <div>
-            <div class="mb-2">
+            <!-- <div class="mb-2">
                 <strong>A = Sangat Baik</strong>&nbsp;
                 <strong>B = Baik</strong>&nbsp;
                 <strong>C = Cukup</strong>&nbsp;
                 <strong>D = Kurang</strong>&nbsp;
-            </div>
+            </div> -->
             <table class="table table-sm table-striped" id="table" style="width: 100%;">
                 <thead class="thead-dark">
                     <tr>
                         <th>No</th>
-                        <th>Kelas</th>
+                        <th>Centroid</th>
                         <th>Mengeja</th>
                         <th>Penjumlahan</th>
                         <th>Menulis</th>

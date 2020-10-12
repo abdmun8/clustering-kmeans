@@ -87,6 +87,11 @@ function processClustering()
     $dns = json_decode($_POST['data_nilai'], TRUE);
     // standar nilai
     $sns = json_decode($_POST['standar_nilai'], TRUE);
+
+
+    // var_dump($dns);
+    // die;
+
     foreach ($dns as $keya => $dn) {
         $nilai = $dn;
         unset($nilai['id']);
@@ -100,12 +105,115 @@ function processClustering()
         foreach ($sns as $key => $sn) {
             $sk[$sn['kelas']] = getDistance($nilai, $sn);
         }
+
+        // nilai
+        $temp['mengeja'] = $dn['mengeja'];
+        $temp['penjumlahan'] = $dn['penjumlahan'];
+        $temp['menulis'] = $dn['menulis'];
+        $temp['keaktifan'] =  $dn['keaktifan'];
+        $temp['pengurangan'] = $dn['pengurangan'];
+        $temp['mewarnai'] = $dn['mewarnai'];
+        $temp['menggambar'] = $dn['menggambar'];
+        $temp['mencocokan_bentuk'] = $dn['mencocokan_bentuk'];
+        $temp['id_siswa'] = $dn['id_siswa'];
         $temp['nama'] = $dn['nama'];
         $temp['nisn'] = $dn['nisn'];
         $addedResult =  compareKey($sk);
         $newArr = array_merge($temp, $addedResult);
         $data[] = $newArr;
     }
+
+
+
+    $iterasi = 1;
+    $_SESSION['data'] = [];
+    $_SESSION['data_nilai'] = $dns;
+    $_SESSION['jumlah_iterasi'] =
+        isset($_POST['jumlah_iterasi']) ? $_POST['jumlah_iterasi'] : 1;
+    if (isset($_POST['is_new'])) {
+        $_SESSION['iterasi'] = 0;
+    }
+    $_SESSION['iterasi']++;
+    $temp_data['cluster_' . $iterasi] = $data;
+
+    // c0 temp data
+    $temp_data['c0' . $iterasi]['id'] = 1;
+    // $temp_data['c0' . $iterasi]['nama'] = $data[0]['nama'];
+    // $temp_data['c0' . $iterasi]['nisn'] = $data[0]['nisn'];
+    $temp_data['c0' . $iterasi]['kelas'] = 'C0';
+    $temp_data['c0' . $iterasi]['mengeja'] = 0;
+    $temp_data['c0' . $iterasi]['penjumlahan'] = 0;
+    $temp_data['c0' . $iterasi]['menulis'] = 0;
+    $temp_data['c0' . $iterasi]['keaktifan'] = 0;
+    $temp_data['c0' . $iterasi]['pengurangan'] = 0;
+    $temp_data['c0' . $iterasi]['mewarnai'] = 0;
+    $temp_data['c0' . $iterasi]['menggambar'] = 0;
+    $temp_data['c0' . $iterasi]['mencocokan_bentuk'] = 0;
+    // c0 temp data
+    $temp_data['c1' . $iterasi]['id'] = 2;
+    // $temp_data['c1' . $iterasi]['nama'] = $data[0]['nama'];
+    // $temp_data['c1' . $iterasi]['nisn'] = $data[0]['nisn'];
+    $temp_data['c1' . $iterasi]['kelas'] = 'C1';
+    $temp_data['c1' . $iterasi]['mengeja'] = 0;
+    $temp_data['c1' . $iterasi]['penjumlahan'] = 0;
+    $temp_data['c1' . $iterasi]['menulis'] = 0;
+    $temp_data['c1' . $iterasi]['keaktifan'] = 0;
+    $temp_data['c1' . $iterasi]['pengurangan'] = 0;
+    $temp_data['c1' . $iterasi]['mewarnai'] = 0;
+    $temp_data['c1' . $iterasi]['menggambar'] = 0;
+    $temp_data['c1' . $iterasi]['mencocokan_bentuk'] = 0;
+
+    $temp_data['centroid_c0_' . $iterasi] = [];
+    $temp_data['centroid_c1_' . $iterasi] = [];
+    foreach ($data as $key => $value) {
+        if ($value['C0'] < $value['C1']) {
+            array_push($temp_data['centroid_c0_' . $iterasi], $value);
+
+            // calculate sum
+            $temp_data['c0' . $iterasi]['mengeja'] += $value['mengeja'];
+            $temp_data['c0' . $iterasi]['penjumlahan'] += $value['penjumlahan'];
+            $temp_data['c0' . $iterasi]['menulis'] += $value['menulis'];
+            $temp_data['c0' . $iterasi]['keaktifan'] +=  $value['keaktifan'];
+            $temp_data['c0' . $iterasi]['pengurangan'] += $value['pengurangan'];
+            $temp_data['c0' . $iterasi]['mewarnai'] += $value['mewarnai'];
+            $temp_data['c0' . $iterasi]['menggambar'] += $value['menggambar'];
+            $temp_data['c0' . $iterasi]['mencocokan_bentuk'] += $value['mencocokan_bentuk'];
+        } else {
+            array_push($temp_data['centroid_c1_' . $iterasi], $value);
+
+            // calculate sum
+            $temp_data['c1' . $iterasi]['mengeja'] += $value['mengeja'];
+            $temp_data['c1' . $iterasi]['penjumlahan'] += $value['penjumlahan'];
+            $temp_data['c1' . $iterasi]['menulis'] += $value['menulis'];
+            $temp_data['c1' . $iterasi]['keaktifan'] +=  $value['keaktifan'];
+            $temp_data['c1' . $iterasi]['pengurangan'] += $value['pengurangan'];
+            $temp_data['c1' . $iterasi]['mewarnai'] += $value['mewarnai'];
+            $temp_data['c1' . $iterasi]['menggambar'] += $value['menggambar'];
+            $temp_data['c1' . $iterasi]['mencocokan_bentuk'] += $value['mencocokan_bentuk'];
+        }
+    }
+
+    // c0
+    $temp_data['c0' . $iterasi]['mengeja'] = round($temp_data['c0' . $iterasi]['mengeja'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+    $temp_data['c0' . $iterasi]['penjumlahan'] = round($temp_data['c0' . $iterasi]['penjumlahan'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+    $temp_data['c0' . $iterasi]['menulis'] = round($temp_data['c0' . $iterasi]['menulis'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+    $temp_data['c0' . $iterasi]['keaktifan'] = round($temp_data['c0' . $iterasi]['keaktifan'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+    $temp_data['c0' . $iterasi]['pengurangan'] = round($temp_data['c0' . $iterasi]['pengurangan'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+    $temp_data['c0' . $iterasi]['mewarnai'] = round($temp_data['c0' . $iterasi]['mewarnai'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+    $temp_data['c0' . $iterasi]['menggambar'] = round($temp_data['c0' . $iterasi]['menggambar'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+    $temp_data['c0' . $iterasi]['mencocokan_bentuk'] = round($temp_data['c0' . $iterasi]['mencocokan_bentuk'] / count($temp_data['centroid_c0_' . $iterasi]), 2);
+
+    // c1
+    $temp_data['c1' . $iterasi]['mengeja'] = round($temp_data['c1' . $iterasi]['mengeja'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+    $temp_data['c1' . $iterasi]['penjumlahan'] = round($temp_data['c1' . $iterasi]['penjumlahan'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+    $temp_data['c1' . $iterasi]['menulis'] = round($temp_data['c1' . $iterasi]['menulis'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+    $temp_data['c1' . $iterasi]['keaktifan'] = round($temp_data['c1' . $iterasi]['keaktifan'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+    $temp_data['c1' . $iterasi]['pengurangan'] = round($temp_data['c1' . $iterasi]['pengurangan'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+    $temp_data['c1' . $iterasi]['mewarnai'] = round($temp_data['c1' . $iterasi]['mewarnai'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+    $temp_data['c1' . $iterasi]['menggambar'] = round($temp_data['c1' . $iterasi]['menggambar'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+    $temp_data['c1' . $iterasi]['mencocokan_bentuk'] = round($temp_data['c1' . $iterasi]['mencocokan_bentuk'] / count($temp_data['centroid_c1_' . $iterasi]), 2);
+
+    $_SESSION['data']['loop' . $iterasi] = $temp_data;
     echo json_encode(['msg' => $msg,  'success' => $success, 'data' => $data]);
 }
 
