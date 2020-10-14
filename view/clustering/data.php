@@ -8,7 +8,7 @@
         </div>
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: flex-end;">
             <label>Jumlah iterasi: </label>
-            <input id="jumlah-iterasi" type="number" class="form-control input-xs" style="width:70px;margin:10px 0 10px 10px;height: 30px;" value="1" min="1" />
+            <input id="jumlah-iterasi" type="number" class="form-control input-xs" style="width:70px;margin:10px 0 10px 10px;height: 30px;" value="7" min="1" />
         </div>
     </div>
 
